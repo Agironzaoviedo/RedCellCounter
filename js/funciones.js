@@ -1,6 +1,3 @@
-var misDatos = {};
-var poiq = 0;
-
 function irAPacientesa() {
     var v1, v2, v3, v4;
     v1 = document.getElementById('cudrado-contador');
@@ -86,9 +83,12 @@ function mostrarPoiqui() {
 
 
 function abrirResultados() {
-    var v1, v2, v3, v4;
+    let v1, v2;
+
+    v1 = document.getElementById('cudrado-contador');
     v2 = document.getElementById('cudrado-resultados');
-    
+
+    v1.style.display = 'none';
     v2.style.display = 'block';
     v2.scrollIntoView(true);
 
@@ -189,12 +189,9 @@ function Reiniciar() {
         }
 
         v2 = document.getElementById('contadorTotal');
-        v3 = document.getElementById('contadorPoiq');
 
         v2.innerHTML = 0;
-        v3.innerHTML = 0;
         Recuento = 0;
-        poiq = 0;
         alert("Datos reiniciados");
     }
 
@@ -218,8 +215,6 @@ function ContA(b) {
 
 }
 function ContP(b) {
-    poiq++;
-
     var v1;
     v1 = document.getElementById(b.id + 'p');
     let sum = 0;
@@ -233,11 +228,7 @@ function ContP(b) {
     v2.play();
     Recuento = (parseInt(Recuento) + 1);
     var v3 = document.getElementById('contadorTotal');
-    v3.innerHTML = Recuento;
-
-    var v4 = document.getElementById('contadorPoiq');
-    v4.innerHTML = poiq;
-    
+    v3.innerHTML = Recuento;    
 }
 function ContH(b) {
     var v1;

@@ -46,7 +46,6 @@
 
 	<div class="linea2">
 		<h5>Total recuento:<span id="contadorTotal">0</span></h5>
-		<h5>poiquilocitosis:<span id="contadorPoiq">0</span></h5>
 	</div>
 
 	<div class="recuadroBotones">
