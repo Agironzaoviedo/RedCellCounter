@@ -1,3 +1,6 @@
+var misDatos = {};
+var poiq = 0;
+
 function irAPacientesa() {
     var v1, v2, v3, v4;
     v1 = document.getElementById('cudrado-contador');
@@ -16,6 +19,7 @@ function irAPacientesa() {
     v4 = document.getElementById('cudrado-about');
     v4.style.display = 'none';
 }
+
 function limpiar() {
     var todos = [document.getElementById('aniciositosis'), document.getElementById('macrocitos'),
     document.getElementById('macrocitos_ovales'), document.getElementById('microcitos'),
@@ -43,8 +47,6 @@ function limpiar() {
 
 }
 function mostrarAni() {
-
-
     var eritro = [document.getElementById('aniciositosis'), document.getElementById('macrocitos'),
     document.getElementById('macrocitos_ovales'), document.getElementById('microcitos')];
 
@@ -67,8 +69,6 @@ function mostrarHipo() {
     }
 }
 function mostrarPoiqui() {
-
-
     var eritro = [document.getElementById('Acantocitos'), document.getElementById('Celulas_contraidas_irregularmente'),
     document.getElementById('Codocitos'), document.getElementById('Queratocitos'),
     document.getElementById('Celulas_en_champinion'),
@@ -92,20 +92,20 @@ function abrirResultados() {
     v2.style.display = 'block';
     v2.scrollIntoView(true);
 
+    calcularPorcentajes();
 }
+
+
 function iniciarSesion() {
     var v1, v2, v3, v4;
     v1 = document.getElementById('user');
     v2 = document.getElementById('pass');
     
-    if(v1.value=="admin" && v2.value=="1234"){
-        
+    if(v1.value=="admin" && v2.value=="1234"){   
         window.location.replace('Pacientes.php');
     }else{
         alert("Esa vaina esta mal escrita");
     }
-    
-
 }
 
 function selectorOpciones() {
@@ -164,6 +164,8 @@ function contadorTotal() {
 
 }
 function Reiniciar() {
+
+   
     var v1, v2;
     i = 1;
 
@@ -185,10 +187,14 @@ function Reiniciar() {
             v1.value = 0;
             i++;
         }
+
         v2 = document.getElementById('contadorTotal');
+        v3 = document.getElementById('contadorPoiq');
 
         v2.innerHTML = 0;
+        v3.innerHTML = 0;
         Recuento = 0;
+        poiq = 0;
         alert("Datos reiniciados");
     }
 
@@ -212,6 +218,8 @@ function ContA(b) {
 
 }
 function ContP(b) {
+    poiq++;
+
     var v1;
     v1 = document.getElementById(b.id + 'p');
     let sum = 0;
@@ -227,6 +235,9 @@ function ContP(b) {
     var v3 = document.getElementById('contadorTotal');
     v3.innerHTML = Recuento;
 
+    var v4 = document.getElementById('contadorPoiq');
+    v4.innerHTML = poiq;
+    
 }
 function ContH(b) {
     var v1;
@@ -266,20 +277,5 @@ function ingresarPaciente(){
     id=prompt("Ingrese su numero de identificación");
     genero=prompt("Ingrese su genero (Masculino | Femeninio)");
     
-   
-
-/*
-    listado=document.getElementById("Listado-estudiantes");
-    if(estudiante!="" && estudiante!=null){
-        contador++;
-        if(parseFloat(promedio)>=3){
-            listado.innerHTML+='<tr id="fila-'+contador+'"><td>'+contador+'</td><td>'+estudiante+
-            '</td><td>'+promedio+'</td><td><a href="#" onclick="Eliminar('+contador+')">X</a></td><tr>'
-        }else{
-            listado.innerHTML+='<tr id="fila-'+contador+'"><td>'+contador+'</td><td>'+estudiante+
-            '</td><td style="background-color:#ff0000;">'+promedio+'</td><td><a href="#" onclick="Eliminar('+contador+')">X</a></td><tr>'
-        }
-    }
-    */
-
 }
+

@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <?php
 
-
 if(isset($_REQUEST['escojer'])){
+
+    var_dump($_REQUEST);
 
     $conn = new PDO("mysql:host=localhost;dbname=usuariosrcc","root","");
     
@@ -34,6 +35,5 @@ if(isset($_REQUEST['escojer'])){
     }
 
 }
-  
 
 ?>
